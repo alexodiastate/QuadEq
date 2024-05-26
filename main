@@ -1,0 +1,37 @@
+import customtkinter as ctk
+
+root = ctk.CTk()
+root.title("Quadratic Equation")
+root.geometry("300x300")
+
+def submit():
+    #Extra variable solely because Python is weird
+    hold = (f"{a.get()}")
+    hold1 = (f"{b.get()}")
+    hold2 = (f"{c.get()}")
+
+    a1 = int(hold)
+    b1 = int(hold1)
+    c1 = int(hold2)
+    print(str(a1) + " " + str(b1) + " " + str(c1))
+
+    #Performs quadratic equation twice for plus and minus then updates header with values
+    answerPos = ((-1*b1 + ((b1*b1)-(4*a1*c1))**0.5)/(2*a1))
+    answerNeg = ((-1*b1 - ((b1*b1)-(4*a1*c1))**0.5)/(2*a1))
+    x.configure(text="X = " + str(answerPos) + ", X = " + str(answerNeg))
+
+x = ctk.CTkLabel(root,text="")
+x.pack(pady=40)
+
+#Entry boxs for a,b,c
+a = ctk.CTkEntry(root,placeholder_text="A")
+a.place(x=80,y=100)
+b = ctk.CTkEntry(root,placeholder_text="B")
+b.place(x=80,y=140)
+c = ctk.CTkEntry(root,placeholder_text="C")
+c.place(x=80,y=180)
+
+submi = ctk.CTkButton(root,command=submit,text="Enter")
+submi.place(x=80,y=230)
+
+root.mainloop()
